@@ -44,7 +44,7 @@ spec:
     spec:
       project: ocr-project
       source:
-        repoURL: 'https://github.com/azmeth23/cluster-system-ocr.git'
+        repoURL: 'https://github.com/azmeth23/ocr-cluster.git'
         targetRevision: HEAD
         path: '{{chartPath}}'
         helm:
