@@ -11,16 +11,18 @@ spec:
   sourceRepos:
     - '*'
   destinations:
-    - namespace: 'ocr-app'
-      server: 'https://kubernetes.default.svc'
-    - namespace: 'monitoring'
-      server: 'https://kubernetes.default.svc'
-  clusterResourceWhitelist:
-    - group: ''
-      kind: Namespace
-  namespaceResourceWhitelist:
-    - group: '*'
-      kind: '*'
+      - namespace: ocr-app
+        server: https://kubernetes.default.svc
+      - namespace: monitoring
+        server: https://kubernetes.default.svc
+      - namespace: kube-system
+        server: https://kubernetes.default.svc
+    namespaceResourceWhitelist:
+      - group: "*"
+        kind: "*"
+    clusterResourceWhitelist:
+      - group: "*"
+        kind: "*"
 ---
 # ApplicationSet CRD
 apiVersion: argoproj.io/v1alpha1
