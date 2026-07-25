@@ -7,4 +7,4 @@ metadata:
     grafana_dashboard: "1"
 data:
   ocr-dashboard.json: |
-{{ .Files.Get "dash/grafana-dashboard.json" | indent 4 }}
+{{ .Files.Get "dash/graphana-dashboard.json" | indent 4 }}
