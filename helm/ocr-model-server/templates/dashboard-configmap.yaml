@@ -2,8 +2,9 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: ocr-model-dashboard
+  namespace: monitoring
   labels:
     grafana_dashboard: "1"
 data:
   ocr-dashboard.json: |
-{{ .Files.Get "../../monitoring/grafana-dashboard.json" | indent 4 }}
+{{ .Files.Get "dash/grafana-dashboard.json" | indent 4 }}

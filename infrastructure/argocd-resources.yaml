@@ -33,9 +33,9 @@ spec:
     - list:
         elements:
           - name: ocr-model-server
-            chartPath: charts/ocr-model-server
+            chartPath: helm/ocr-model-server
           - name: ocr-api-gateway
-            chartPath: charts/api-gateway
+            chartPath: helm/api-gateway
   template:
     metadata:
       name: '{{name}}'
