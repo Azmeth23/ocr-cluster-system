@@ -4,6 +4,7 @@ set -e
 # Username & image tags 
 DOCKER_USER="azmeth07"
 REPO="ocr-p-repo"
+DOCKER_NETWORK="ocr-network"
 
 GATEWAY_TAG="$DOCKER_USER/$REPO:api-gateway"
 OCR_TAG="$DOCKER_USER/$REPO:ocr-model"
@@ -13,21 +14,21 @@ docker build -t $GATEWAY_TAG ./api-gateway
 docker build -t $OCR_TAG ./ocr-model
 
 echo "Setting Up Local Network & Cleanup;"
-docker network create ocr-network 2>/dev/null || true
+docker network create $DOCKER_NETWORK 2>/dev/null || true
 docker rm -f ocr-model-container local-api-gateway 2>/dev/null || true
 
 echo "Starting Containers Locally;"
 # Runs the ocr model container
 docker run -d \
   --name ocr-model-container \
-  --network ocr-network \
+  --network $DOCKER_NETWORK \
   -p 8080:8080 \
   $OCR_TAG
 
 # Runs the api gateway container with network link
 docker run -d \
   --name local-api-gateway \
-  --network ocr-network \
+  --network $DOCKER_NETWORK \
   -p 8000:8000 \
   $GATEWAY_TAG
 

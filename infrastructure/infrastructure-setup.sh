@@ -17,6 +17,8 @@ helm upgrade --install argocd argo/argo-cd \
   --namespace argocd \
   -f argocd-values.yaml
 
+kubectl apply -f argocd-resources.yaml
+
 echo "Deploying Prometheus and Grafana;"
 kubectl create namespace monitoring --dry-run=client -o yaml | kubectl apply -f -
 

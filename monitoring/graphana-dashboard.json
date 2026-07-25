@@ -1,0 +1,78 @@
+{
+  "title": "OCR Model Monitoring",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Inference Requests (Last 5 Minutes)",
+      "type": "stat",
+      "targets": [
+        {
+          "expr": "sum(increase(request_count[5m]))"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Inference Throughput (Requests/sec)",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "sum(rate(request_count[5m]))"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "95th Percentile Inference Latency",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(request_duration_seconds_bucket[5m])) by (le))"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "CPU Usage",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "sum(rate(container_cpu_usage_seconds_total[5m]))"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Memory Usage",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "sum(container_memory_usage_bytes)"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Error Rate (%)",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "100 * sum(rate(requests_total{status=~\"5..\"}[5m])) / sum(rate(requests_total[5m]))"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Requests by Status Code",
+      "type": "graph",
+      "targets": [
+        {
+          "expr": "sum by(status) (rate(requests_total[5m]))"
+        }
+      ]
+    }
+  ]
+}

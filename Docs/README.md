@@ -20,7 +20,7 @@ The system is built around a microservices approach focused on scalable inferenc
 Before setting up the project, ensure you have the following installed on your machine:
 
 * [Docker](https://docs.docker.com/get-docker/)
-* [Minikube](https://minikube.sigs.k8s.io/docs/start/) *(Recommended allocation: at least 4 GB RAM, 2 CPUs)*
+* [Minikube](https://minikube.sigs.k8s.io/docs/start/) 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/)
 * [Helm v3](https://helm.sh/docs/intro/install/)
 * [pipx](https://github.com/pypa/pipx)
