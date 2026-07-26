@@ -2,17 +2,14 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ .Values.app.name }}-monitor
-  namespace: monitoring
   labels:
     release: prometheus
 spec:
   selector:
     matchLabels:
       app: {{ .Values.app.name }}
-  namespaceSelector:
-    matchNames:
-      - ocr-app
   endpoints:
     - port: http
       path: /metrics
       interval: {{ .Values.monitoring.interval }}
+
