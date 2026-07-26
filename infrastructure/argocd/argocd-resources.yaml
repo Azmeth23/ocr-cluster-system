@@ -6,7 +6,7 @@ metadata:
 spec:
   description: OCR Cluster Project
   sourceRepos:
-    - https://github.com/Azmeth23/ocr-cluster-setup
+    - https://github.com/Azmeth23/ocr-cluster-system
   destinations:
     - namespace: ocr-app
       server: https://kubernetes.default.svc
@@ -34,7 +34,7 @@ spec:
     spec:
       project: ocr-project
       source:
-        repoURL: https://github.com/Azmeth23/ocr-cluster-setup
+        repoURL: https://github.com/Azmeth23/ocr-cluster-system.git
         targetRevision: HEAD
         path: "{{path}}"
       destination:

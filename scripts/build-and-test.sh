@@ -10,7 +10,7 @@ GATEWAY_TAG="$DOCKER_USER/$REPO:api-gateway"
 OCR_TAG="$DOCKER_USER/$REPO:ocr-model"
 
 echo "Building Docker Images;"
-docker build -t $GATEWAY_TAG ./api-gateway
+cd .. && docker build -t $GATEWAY_TAG ./api-gateway
 docker build -t $OCR_TAG ./ocr-model
 
 echo "Setting Up Local Network & Cleanup;"
