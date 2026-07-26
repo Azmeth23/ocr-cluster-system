@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ocr-model-service
+  name: {{ .Values.app.name }}-service
   labels:
-    app: ocr-model
+    app: {{ .Values.app.name }}
 spec:
   type: ClusterIP
   ports:
@@ -11,6 +11,6 @@ spec:
       port: 8080
       targetPort: 8080
   selector:
-    app: ocr-model
+    app: {{ .Values.app.name }}
 
     

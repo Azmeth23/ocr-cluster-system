@@ -27,7 +27,7 @@ spec:
         path: helm/api-gateway
 
       - name: ocr-model
-        path: helm/ocr-model
+        path: helm/ocr-model-server
   template:
     metadata:
       name: "{{name}}"
