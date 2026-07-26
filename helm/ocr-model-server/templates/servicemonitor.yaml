@@ -12,4 +12,3 @@ spec:
     - port: http
       path: /metrics
       interval: {{ .Values.monitoring.interval }}
-
