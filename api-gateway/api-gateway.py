@@ -8,6 +8,7 @@ import json
 app = FastAPI()
 
 KSERVE_URL = os.getenv("MODEL_SERVER_URL", "http://ocr-model-container:8080/v2/models/ocr-model/infer") 
+#KSERVE_URL = "http://localhost:8080/v2/models/ocr-model/infer"
 #Allows to communicate with modelserver url if available or fallback to this for the local docker
 
 @app.post("/gateway/ocr")

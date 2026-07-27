@@ -8,7 +8,7 @@ pipx install poetry --force
 sudo apt update && sudo apt install -y tesseract-ocr tesseract-ocr-eng
 
 # install poetry dependencies
-cd ocr-model && poetry install --no-root && cd ..
+cd .. && cd ocr-model && poetry install --no-root && cd ..
 cd api-gateway && poetry install --no-root && cd ..
 
 # starts ocr
